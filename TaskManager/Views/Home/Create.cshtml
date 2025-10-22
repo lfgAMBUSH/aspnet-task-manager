@@ -1,0 +1,10 @@
+﻿@model TaskItemModel
+<form asp-action="Create" method="post" class="form-control">
+    <div style="margin: 20px">
+        <label class="form-label" style="margin-bottom: 20px">Название задачи</label>
+        <input asp-for="Title" class="input-group-text" type="text"/>
+    </div>
+    <div style="margin: 20px">
+        <button class="btn-light" type="submit">Опубликовать задачу</button>
+    </div>
+</form>
