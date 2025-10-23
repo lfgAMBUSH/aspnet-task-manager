@@ -10,10 +10,10 @@ SQL Server Express или LocalD (устанавливается с Visual Studi
   1. Клонирование репозитория.
   2. Строка подключения к БД хранится в secrets.json. На примере MS SQL LocalDB, чтобы задать свою строку подключения:
      '''bash
-     'dotnet user-secrets set "ConnectionStrings:DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=aspnet-TaskManager;Trusted_Connection=True;MultipleActiveResultSets=true"'
+     dotnet user-secrets set "ConnectionStrings:DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=aspnet-TaskManager;Trusted_Connection=True;MultipleActiveResultSets=true"
   4. Применить миграции и создать базу данных:
      '''bash
-     'dotnet ef database update'
+     dotnet ef database update
 ##Аутентификация
 Приложение использует стандартный ASP.NET Core Identity.
 ПОст-запросы и изменения доступны только авторизованным пользователям.
