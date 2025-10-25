@@ -60,7 +60,7 @@ namespace TaskManager.Controllers
         public async Task<IActionResult> Create(TaskItemModel model)
         {
             model.UserId = _userManager.GetUserId(User);
-            model.TimeOfPublication = DateTime.UtcNow;
+            model.TimeOfPublication = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
             model.IsDone = false;
             if (!ModelState.IsValid)
             {
