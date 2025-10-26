@@ -17,7 +17,7 @@ namespace TaskManager.Data
         protected override void OnModelCreating(ModelBuilder b)
         {
             base.OnModelCreating(b);
-
+            
             b.Entity<TaskItemModel>()
                 .HasOne(t => t.User)
                 .WithMany()

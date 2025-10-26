@@ -28,13 +28,22 @@ namespace TaskManager.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Tasks(List<TaskItemModel> model)
+        public async Task<IActionResult> Tasks(List<TaskItemModel> model, List<int> selectedIds)
         {
             foreach (var item in model)
             {
                 var task = await _context.TaskItems.FindAsync(item.Id);
-                task.IsDone = item.IsDone;
+                if(task.IsDone != item.IsDone)
+                {
+                    task.IsDone = item.IsDone;
+                }
             }
+            if(selectedIds != null && selectedIds.Count > 0)
+            {
+                var task =  _context.TaskItems.Where(t => selectedIds.Contains(t.Id));
+                _context.TaskItems.RemoveRange(task);
+            }
+            
             await _context.SaveChangesAsync();
             return RedirectToAction("Tasks");
         }

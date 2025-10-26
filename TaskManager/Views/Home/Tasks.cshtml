@@ -8,13 +8,14 @@
     <table>
         <tr>
             <div style="padding: 40px">
-                <button type="submit">Обновить данные</button>
+                <button type="submit">Подтвердить данные</button>
             </div>
         </tr>
         <tr>
             <table border="1" class="table">
                 <thead>
                     <tr>
+                        <th>Удалить?</th>
                         <th>Номер задачи</th>
                         <th>Название задачи</th>
                         <th>Время публикации</th>
@@ -25,6 +26,7 @@
                     @for (int i = 0; i < Model.Count; i++)
                     {
                         <tr @(Model[i].IsDone ? "class=table-success" : "")>
+                            <td><input type="checkbox" name="selectedIds" value="@Model[i].Id"/></td>
                             <td>@(i+1)</td>
                             <td>@Model[i].Title</td>
                             <td>@Model[i].TimeOfPublication</td>
